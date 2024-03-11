@@ -3,6 +3,7 @@ import { getUsersMethods } from './entities/users';
 import { getAlbumsMethods } from './entities/albums';
 import { getTracksMethods } from './entities/tracks';
 import { getArtistsMethods } from './entities/artists';
+import { getFavsMethods } from './entities/favorites';
 
 @Injectable()
 export class DB {
@@ -20,5 +21,9 @@ export class DB {
 
   get album() {
     return getAlbumsMethods();
+  }
+
+  get fav() {
+    return getFavsMethods();
   }
 }
