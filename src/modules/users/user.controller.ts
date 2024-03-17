@@ -11,7 +11,7 @@ import {
   ClassSerializerInterceptor,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { UUID } from 'src/database/uuid.dto';
+import { UUID } from 'src/dto/uuid.dto';
 import { UserDto, UpdatePasswordDto } from './dto/user.dto';
 import { ENTITIES } from 'src/constants';
 

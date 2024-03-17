@@ -14,13 +14,18 @@ export class UserService {
     private readonly userRepository: Repository<User>,
   ) { }
 
+  async getUser(id: string) {
+    const user = await this.userRepository.findOne({ where: { id } });
+    if (!user) throw new EntityDoesNotExist(ENTITIES.USER);
+    return user;
+  }
+
   async findAll() {
     return await this.userRepository.find();
   }
 
   async findOne(id: string) {
-    const user = await this.userRepository.findOne({ where: { id } });
-    if (!user) throw new EntityDoesNotExist(ENTITIES.TRACK);
+    const user = await this.getUser(id);
     return user;
   }
 
@@ -38,9 +43,8 @@ export class UserService {
 
   async update(id: string, updateDto: any) {
     const { oldPassword, newPassword } = updateDto;
-    const user = await this.findOne(id);
+    const user = await this.getUser(id);
 
-    if (!user) throw new EntityDoesNotExist(ENTITIES.TRACK);
     if (oldPassword !== user.password) throw new IncorrectPassword();
 
     user.password = newPassword;
@@ -52,7 +56,7 @@ export class UserService {
   }
 
   async delete(id: string) {
-    const user = await this.userRepository.delete(id);
-    if (user.affected !== 1) throw new EntityDoesNotExist(ENTITIES.TRACK);
+    await this.getUser(id);
+    await this.userRepository.delete(id);
   }
 }

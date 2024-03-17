@@ -23,3 +23,9 @@ export class EntityIdDoesNotFound extends HttpException {
     super(`${entity} id does not exist`, 422);
   }
 }
+
+export class EntityNotContent extends HttpException {
+  constructor(type: string) {
+    super(`${type} not exists`, 204);
+  }
+}
