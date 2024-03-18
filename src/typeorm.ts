@@ -12,7 +12,6 @@ const config = {
   password: process.env.POSTGRESS_PASSWORD,
   database: process.env.POSTGRES_DB,
   entities: ['dist/**/*.entity{.ts,.js}'],
-  // migrations: ['dist/migrations/*{.ts,.js}'],
   autoLoadEntities: true,
   synchronize: true,
 };
