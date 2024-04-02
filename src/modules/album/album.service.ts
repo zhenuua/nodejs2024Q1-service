@@ -16,7 +16,7 @@ export class AlbumService {
 
     @InjectRepository(Track)
     private readonly trackRepository: Repository<Track>,
-  ) { }
+  ) {}
 
   async getAlbum(id: string, Err = EntityDoesNotExist) {
     const album = await this.albumRepository.findOne({ where: { id } });

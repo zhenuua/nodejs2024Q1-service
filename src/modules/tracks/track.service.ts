@@ -16,7 +16,7 @@ export class TrackService {
     private readonly trackRepository: Repository<Track>,
     @Inject(forwardRef(() => FavoriteService))
     private readonly favoriteService: FavoriteService,
-  ) { }
+  ) {}
 
   async getTrack(id: string, Err = EntityDoesNotExist) {
     const track = await this.trackRepository.findOne({ where: { id } });

@@ -16,4 +16,4 @@ import { FavoriteModule } from '../favorite/favorite.module';
   ],
   exports: [TrackService],
 })
-export class TrackModule { }
+export class TrackModule {}

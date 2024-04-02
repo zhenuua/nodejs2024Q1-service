@@ -5,7 +5,7 @@ import { ENTITIES } from 'src/constants';
 
 @Controller(ENTITIES.FAVS)
 export class FavoriteController {
-  constructor(private favService: FavoriteService) { }
+  constructor(private favService: FavoriteService) {}
   @Get()
   getAll() {
     return this.favService.findAll();

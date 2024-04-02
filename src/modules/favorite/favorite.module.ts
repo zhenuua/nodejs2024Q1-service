@@ -21,4 +21,4 @@ import { AlbumModule } from '../album/album.module';
   ],
   exports: [FavoriteService],
 })
-export class FavoriteModule { }
+export class FavoriteModule {}

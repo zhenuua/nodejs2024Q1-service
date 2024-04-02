@@ -21,4 +21,4 @@ import { FavoriteModule } from '../favorite/favorite.module';
   ],
   exports: [ArtistService],
 })
-export class ArtistModule { }
+export class ArtistModule {}

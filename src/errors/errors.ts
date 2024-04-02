@@ -1,4 +1,5 @@
 import { HttpException, HttpStatus } from '@nestjs/common';
+import { BaseError } from './BaseError';
 
 export class InvalidEntityId extends HttpException {
   constructor(type: string) {
@@ -27,5 +28,23 @@ export class EntityIdDoesNotFound extends HttpException {
 export class EntityNotContent extends HttpException {
   constructor(type: string) {
     super(`${type} not exists`, 204);
+  }
+}
+
+export class NotCorrect extends HttpException {
+  constructor() {
+    super('Password or login is not correct', 403);
+  }
+}
+
+export class Forbidden extends BaseError {
+  constructor(content = 'Authentication') {
+    super('AUTHENTICATION', content, true);
+  }
+}
+
+export class BadRequest extends BaseError {
+  constructor(content = 'Bad Request') {
+    super('BAD REQUEST', content, true);
   }
 }

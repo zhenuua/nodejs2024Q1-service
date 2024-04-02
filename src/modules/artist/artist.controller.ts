@@ -15,7 +15,7 @@ import { ENTITIES } from 'src/constants';
 
 @Controller(ENTITIES.ARTIST)
 export class ArtistController {
-  constructor(private artistService: ArtistService) { }
+  constructor(private artistService: ArtistService) {}
   @Get()
   getAll() {
     return this.artistService.findAll();

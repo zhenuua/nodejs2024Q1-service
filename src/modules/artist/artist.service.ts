@@ -8,7 +8,6 @@ import { randomUUID } from 'crypto';
 import { Artist } from './artist.entity';
 import { Album } from '../album/album.entity';
 
-
 @Injectable()
 export class ArtistService {
   constructor(
@@ -17,7 +16,7 @@ export class ArtistService {
 
     @InjectRepository(Album)
     private readonly albumRepository: Repository<Album>,
-  ) { }
+  ) {}
   async getArtist(id: string, Err = EntityDoesNotExist) {
     const artist = await this.artistRepository.findOne({ where: { id } });
     if (!artist) throw new Err(ENTITIES.ARTIST);

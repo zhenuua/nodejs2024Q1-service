@@ -46,7 +46,7 @@ export class FavoriteService {
 
     @Inject(forwardRef(() => TrackService))
     private readonly trackService: TrackService,
-  ) { }
+  ) {}
 
   async findAll() {
     const favArtists = await this.artistRepository.find();

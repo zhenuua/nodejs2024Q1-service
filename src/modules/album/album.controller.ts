@@ -15,7 +15,7 @@ import { ENTITIES } from 'src/constants';
 
 @Controller(ENTITIES.ALBUM)
 export class AlbumController {
-  constructor(private albumService: AlbumService) { }
+  constructor(private albumService: AlbumService) {}
   @Get()
   getAll() {
     return this.albumService.findAll();
